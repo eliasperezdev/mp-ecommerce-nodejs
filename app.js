@@ -3,6 +3,15 @@ var exphbs  = require('express-handlebars');
 var port = process.env.PORT || 3000
 
 var app = express();
+
+const PaymentController = require("./controllers/PaymentController");
+ //importamos el controller
+
+const PaymentService = require("./Service/PaymentService"); 
+//importamos el service
+
+const PaymentInstance = new PaymentController(new PaymentService()); 
+// Permitimos que el controller pueda usar el service
  
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -18,5 +27,11 @@ app.get('/', function (req, res) {
 app.get('/detail', function (req, res) {
     res.render('detail', req.query);
 });
+
+app.post("/payment/new", (req, res) => 
+  PaymentInstance.getMercadoPagoLink(req, res) 
+);
+
+app.post("/webhook", (req, res) => PaymentInstance.webhook(req, res));
 
 app.listen(port);
