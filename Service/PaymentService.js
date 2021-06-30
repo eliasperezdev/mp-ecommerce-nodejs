@@ -67,7 +67,7 @@ console.log(name)
         failure: "https://localhost:3000.com/error" 
 
       }, 
-      notification_url: "https://mercadopago-checkout.herokuapp.com/webhook", 
+      notification_url: "https://perex125-mp-ecommerce-nodejs.herokuapp.com//webhook", 
 
       auto_return: "approved" 
     };
