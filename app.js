@@ -75,6 +75,8 @@ app.post('/checkout/new',function (req,res) {
         installments: 6, 
         default_installments: 6
         
+        installments: 6, 
+        default_installments: 6 
     },
       
     // ...
@@ -90,6 +92,9 @@ app.post('/checkout/new',function (req,res) {
         title:name,
         unit_price:parseFloat(price),
         quantity:parseInt(unit),
+        title:'Samsung Galaxy S9',
+        unit_price:15000,
+        quantity:1,
 
     }
     ]
