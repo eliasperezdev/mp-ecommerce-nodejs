@@ -45,12 +45,12 @@ app.post('/checkout/new',function (req,res) {
     payer: {
         phone: {
             area_code:'11',
-            number: "22223333"
+            number: 22223333
         },
         
         address: {
             street_name: 'Falsa',
-            street_number: "123",
+            street_number: 123,
             zip_code: '1111',
 
         },
