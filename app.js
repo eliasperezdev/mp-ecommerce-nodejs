@@ -5,13 +5,10 @@ var port = process.env.PORT || 3000
 var app = express();
 
 const PaymentController = require("./controllers/PaymentController");
- //importamos el controller
 
 const PaymentService = require("./Service/PaymentService"); 
-//importamos el service
 
 const PaymentInstance = new PaymentController(new PaymentService()); 
-// Permitimos que el controller pueda usar el service
  
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
