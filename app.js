@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
 
 app.post('/checkout/new',function (req,res) {
 
- const { name, price, unit, img } = req.query; 
+ const { name, price, unit} = req.query; 
   let preference ={
 
     back_urls: {
