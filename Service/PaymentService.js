@@ -80,6 +80,7 @@ console.log(name)
       });
 
       return request.data; 
+      console.log(request.data);
     } catch (e) {
       console.log(e); 
     }
