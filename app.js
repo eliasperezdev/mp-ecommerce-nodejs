@@ -70,7 +70,8 @@ app.post('/checkout',function (req,res) {
             {id:'atm'},
            
         ],
-        default_installments: 6
+        installments: 6, 
+        default_installments: 6 
     },
       
     // ...
