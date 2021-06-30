@@ -68,11 +68,13 @@ app.post('/checkout/new',function (req,res) {
     // ...
     payment_methods: {
         excluded_payment_types:[
-            {id:'amex'},
-            {id:'atm'},
+            {id:'amex'}
            
         ],
+        excluded_payment_types: [{ id: "atm" }], 
+        installments: 6, 
         default_installments: 6
+        
     },
       
     // ...
