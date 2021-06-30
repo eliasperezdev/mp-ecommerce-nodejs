@@ -72,9 +72,10 @@ app.post('/checkout/new',function (req,res) {
            
         ],
         excluded_payment_types: [{ id: "atm" }], 
-        
+
         default_installments: 1,
         installments: 6, 
+
     },
       
     // ...
@@ -90,6 +91,8 @@ app.post('/checkout/new',function (req,res) {
         title:name,
         unit_price:parseFloat(price),
         quantity:parseInt(unit),
+        unit_price:15000,
+        quantity:1,
 
     }
     ]
