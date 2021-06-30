@@ -72,9 +72,9 @@ app.post('/checkout/new',function (req,res) {
            
         ],
         excluded_payment_types: [{ id: "atm" }], 
-        installments: 6, 
-        default_installments: 1
         
+        default_installments: 1,
+        installments: 6, 
     },
       
     // ...
