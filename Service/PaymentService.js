@@ -62,12 +62,12 @@ console.log(name)
         default_installments: 6 
       }, 
       back_urls: {
-        success: "https://localhost:3000/success", 
-        pending: "https://localhost:3000.com/pending", 
-        failure: "https://localhost:3000.com/error" 
+        success: "https://perex125-mp-ecommerce-nodejs.herokuapp.com/success", 
+        pending: "https://perex125-mp-ecommerce-nodejs.herokuapp.com/pending", 
+        failure: "https://perex125-mp-ecommerce-nodejs.herokuapp.com/error" 
 
       }, 
-      notification_url: "https://perex125-mp-ecommerce-nodejs.herokuapp.com//webhook", 
+      notification_url: "https://perex125-mp-ecommerce-nodejs.herokuapp.com/webhook", 
 
       auto_return: "approved" 
     };
