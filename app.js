@@ -33,9 +33,9 @@ app.post('/checkout',function (req,res) {
   let preference ={
 
     back_urls: {
-        success: 'http://localhost:3000/success/',
-        failure: 'http://localhost:3000/error/',
-        pending: 'http://localhost:3000/pending/'
+        success: 'https://perex125-mp-ecommerce-nodejs.herokuapp.com/success/',
+        failure: 'https://perex125-mp-ecommerce-nodejs.herokuapp.com/error/',
+        pending: 'https://perex125-mp-ecommerce-nodejs.herokuapp.com/pending/'
     },
     auto_return: 'approved',
     // ...
