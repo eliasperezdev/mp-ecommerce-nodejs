@@ -1,15 +1,106 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
-var port = process.env.PORT || 3000
+
+var port = process.env.PORT || 3000;
 
 var app = express();
 
-const PaymentController = require("./controllers/PaymentController");
+const mercadopago=require('mercadopago');
 
-const PaymentService = require("./Service/PaymentService"); 
 
-const PaymentInstance = new PaymentController(new PaymentService()); 
- 
+mercadopago.configure({
+    access_token:'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398', 
+    integrator_id: 'APP_USR-7eb0138a-189f-4bec-87d1-c0504ead5626',
+});
+
+app.get('/pending', function (req, res) {
+
+    res.render('pending');
+});
+
+app.get('/error', function (req, res) {
+
+    res.render('error');
+});
+
+app.get('/', function (req, res) {
+
+    res.render('home');
+});
+
+
+app.post('/checkout',function (req,res) {
+  let preference ={
+
+    back_urls: {
+        success: 'http://localhost:3000/success/',
+        failure: 'http://localhost:3000/error/',
+        pending: 'http://localhost:3000/pending/'
+    },
+    auto_return: 'approved',
+    // ...
+
+    payer: {
+        phone: {
+            area_code:'11',
+            number: 22223333
+        },
+        
+        address: {
+            street_name: 'false',
+            street_number: 123,
+            zip_code: '1111',
+
+        },
+        
+        email: 'test_user_63274575@testuser.com',
+        identification: {},
+        name: 'Lalo',
+        surname: 'Landa',
+        date_created: null,
+        last_purchase: null
+    },
+    // ...
+    notification_url: 'https://perex125-mp-ecommerce-nodejs.herokuapp.com/webhook',
+
+    // ...
+    payment_methods: {
+        excluded_payment_types:[
+            {id:'amex'},
+            {id:'atm'},
+           
+        ],
+        default_installments: 6
+    },
+      
+    // ...
+
+    external_reference: 'perexlito@gmail.com',
+
+    items:[
+    {
+        id:1234,
+        picture_url: 'localhost:3000/assets/samsung-galaxy-s9-xxl.jpg',
+
+        description: 'Dipositivo móvil de Tienda e-commerce',
+        tile:'Samsung Galaxy S9',
+        unit_price:15000,
+        quantity:1,
+
+    }
+    ]
+
+};
+
+mercadopago.preferences.create(preference)
+    .then(function(response){
+        console.log(response);
+        res.redirect(response.body.init_point);
+    }).catch(function(error){
+        console.log(error);
+    });
+
+});
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
@@ -25,10 +116,8 @@ app.get('/detail', function (req, res) {
     res.render('detail', req.query);
 });
 
-app.post("/payment/new", (req, res) => 
-  PaymentInstance.getMercadoPagoLink(req, res) 
-);
-
-app.post("/webhook", (req, res) => PaymentInstance.webhook(req, res));
+app.get('/success', function (req, res) {
+    res.render('success', req.query);
+});
 
 app.listen(port);

@@ -1,4 +1,3 @@
-
 <div class="as-search-wrapper" role="main">
     <div class="as-navtuck-wrapper">
         <div class="as-l-fullwidth  as-navtuck" data-events="event52">
@@ -9,7 +8,7 @@
                             <img src="./assets/music-audio-alp-201709" alt="" width="1440" height="320" data-scale-params-2="wid=2880&amp;hei=640&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1503948581306" class="pd-billboard-hero ir">
                         </div>
                         <div class="pd-billboard-info">
-                            <h1 class="pd-billboard-header pd-util-compact-small-18">Tienda e-commerce</h1>
+                            <h1 class="pd-billboard-header pd-util-compact-small-18">Tienda e-commerce - pago exitoso</h1>
                         </div>
                     </div>
                 </div>
@@ -78,13 +77,16 @@
                                     </h3>
                                 </div>
                                 <h3 >
-                                    {{ price }}
+                                    id de pago: {{ payment_id }}
                                 </h3>
                                 <h3 >
-                                    {{ unit }}
+                                    metodo de pago {{ payment_type }}
+                                </h3>
+                                <h3 >
+                                    referencia extena {{ external_reference }}
                                 </h3>
                             </div>
-                          <form action="/checkout" method="post">
+                            <form action="/" method="get">
                                 <input type="hidden" id="img" name="img" value="./assets/samsung-galaxy-s9-xxl.jpg">
 
 
@@ -92,8 +94,9 @@
                                 <input type="hidden" name="title" value="Samsung Galaxy S9">
                                 <input type="hidden" name="price" value="15000">
                                 <input type="hidden" name="unit" value="1">
-                                <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                <button type="submit" class="mercadopago-button" formmethod="get">Volver</button>
                             </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,4 +104,3 @@
         </div>
     </div>
 </div>
-   
