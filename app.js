@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
 
 app.post('/checkout/new',function (req,res) {
 
- const { name, price, unit} = req.query; 
+ const { name,unit, price} = req.query; 
   let preference ={
 
     back_urls: {
@@ -73,7 +73,7 @@ app.post('/checkout/new',function (req,res) {
         ],
         excluded_payment_types: [{ id: "atm" }], 
         installments: 6, 
-        default_installments: 6
+        default_installments: 1
         
     },
       
