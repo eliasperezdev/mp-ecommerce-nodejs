@@ -79,12 +79,12 @@ app.post('/checkout',function (req,res) {
 
     items:[
     {
-        id:1234,
-        picture_url: 'localhost:3000/assets/samsung-galaxy-s9-xxl.jpg',
-
-        description: 'Dipositivo móvil de Tienda e-commerce',
-        tile:'Samsung Galaxy S9',
-        unit_price:15000,
+        id:"1234",
+        category_id: "1234",  
+        picture_url: 'https://perex125-mp-ecommerce-nodejs.herokuapp.com/assets/samsung-galaxy-s9-xxl.jpg',
+        description: 'Dispositivo móvil de Tienda e-commerce',
+        title:'Samsung Galaxy S9',
+        unit_price:"15000",
         quantity:1,
 
     }
