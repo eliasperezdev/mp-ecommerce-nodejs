@@ -61,7 +61,7 @@ app.post('/checkout',function (req,res) {
         last_purchase: null
     },
     // ...
-    notification_url: 'https://perex125-mp-ecommerce-nodejs.herokuapp.com/webhook',
+    notification_url: 'https://7bf0e09591ed8252025d97ba243bd893.m.pipedream.net',
 
     // ...
     payment_methods: {
