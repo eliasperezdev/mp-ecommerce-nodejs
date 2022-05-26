@@ -9,8 +9,8 @@ const mercadopago=require('mercadopago');
 
 
 mercadopago.configure({
-    access_token:'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398', 
-    integrator_id: 'dev_24c65fb163bf11ea96500242ac130004',
+    access_token:process.env.ACCESS_TOKEN, 
+    integrator_id: process.env._INTEGRATOR_ID,
 });
 
 app.get('/pending', function (req, res) {
@@ -63,7 +63,7 @@ app.post('/checkout/new',function (req,res) {
         last_purchase: null
     },
     // ...
-    notification_url: 'https://7bf0e09591ed8252025d97ba243bd893.m.pipedream.net',
+    notification_url: process.env.NOTIFICATION,
 
     // ...
     payment_methods: {
@@ -80,7 +80,7 @@ app.post('/checkout/new',function (req,res) {
       
     // ...
 
-    external_reference: 'perexlito@gmail.com',
+    external_reference: process.env.EMAIL,
 
     items:[
     {
